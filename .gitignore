@@ -91,6 +91,9 @@ out
 .nuxt
 dist
 bsbm
+BSBM-1.4.0/
+v1.4.0.zip
+v1.4.0/
 
 # Gatsby files
 .cache/
