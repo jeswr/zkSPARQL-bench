@@ -1,0 +1,21 @@
+PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/>
+PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?title ?text ?reviewDate ?reviewer ?reviewerName ?rating1 ?rating2 ?rating3 ?rating4
+WHERE { 
+  ?review bsbm:reviewFor bsbm-inst:Product1 .
+  ?review bsbm:title ?title .
+  ?review bsbm:text ?text .
+  ?review bsbm:reviewDate ?reviewDate .
+  ?review bsbm:reviewer ?reviewer .
+  ?reviewer rdfs:label ?reviewerName .
+  ?review bsbm:rating1 ?rating1 .
+  ?review bsbm:rating2 ?rating2 .
+  ?review bsbm:rating3 ?rating3 .
+  ?review bsbm:rating4 ?rating4 .
+  ?review bsbm:language "de" .
+}
+ORDER BY DESC(?reviewDate)
+LIMIT 20 

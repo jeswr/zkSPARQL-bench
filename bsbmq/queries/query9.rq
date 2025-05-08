@@ -1,0 +1,15 @@
+PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/>
+PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?reviewer ?name ?mbox_sha1sum ?country ?review ?product ?title
+WHERE { 
+  bsbm-inst:Review1 bsbm:reviewer ?reviewer .
+  ?reviewer rdfs:label ?name .
+  ?reviewer bsbm:mbox_sha1sum ?mbox_sha1sum .
+  ?reviewer bsbm:country ?country .
+  ?review bsbm:reviewer ?reviewer .
+  ?review bsbm:reviewFor ?product .
+  ?review bsbm:title ?title .
+} 

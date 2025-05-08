@@ -11,3 +11,7 @@ node bsbm.js
 
 rm -rf bsbm
 rm -rf .cache
+
+cp -r lubm/queries dist/lubm/queries
+# Queries are generate using an LLM looking at http://wbsg.informatik.uni-mannheim.de/bizer/berlinsparqlbenchmark/spec/ExploreUseCase/index.html
+cp -r bsbmq/queries dist/bsbm/queries

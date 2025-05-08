@@ -1,0 +1,18 @@
+PREFIX bsbm-inst: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/>
+PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?product ?producer ?vendor ?price ?validFrom ?validTo ?deliveryDays ?offerWebpage ?publisher ?publishDate
+WHERE {
+  bsbm-inst:Offer1 bsbm:product ?product .
+  bsbm-inst:Offer1 bsbm:producer ?producer .
+  bsbm-inst:Offer1 bsbm:vendor ?vendor .
+  bsbm-inst:Offer1 bsbm:price ?price .
+  bsbm-inst:Offer1 bsbm:validFrom ?validFrom .
+  bsbm-inst:Offer1 bsbm:validTo ?validTo .
+  bsbm-inst:Offer1 bsbm:deliveryDays ?deliveryDays .
+  bsbm-inst:Offer1 bsbm:offerWebpage ?offerWebpage .
+  bsbm-inst:Offer1 bsbm:publisher ?publisher .
+  bsbm-inst:Offer1 bsbm:publishDate ?publishDate .
+} 
