@@ -1,11 +1,12 @@
 import deref from 'rdf-dereference-store';
-import { rdf } from 'rdf-namespaces';
+import { rdf, foaf } from 'rdf-namespaces';
 import { DataFactory as DF } from 'n3';
 import jsonld from 'jsonld';
 import { documentLoader } from '@jeswr/vc-cli';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { execSync } from 'node:child_process';
 import contexts from './context.json' with { type: 'json' };
 import frames from './frame.js';
 
@@ -19,13 +20,19 @@ const BSBM_NS = 'http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/';
 const CRED = 'https://www.w3.org/2018/credentials#';
 const XSD = 'http://www.w3.org/2001/XMLSchema#';
 
-const productTypes = [
-  `${BSBM_NS}ProductFeature`,
+// http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/StandardizationInstitution1
+
+const legalProductTypes = [
   `${BSBM_NS}Producer`,
-  `${BSBM_NS}Product`,
   `${BSBM_NS}Vendor`,
+  foaf.Person,
+];
+
+const productTypes = [
+  ...legalProductTypes,
+  `${BSBM_NS}ProductFeature`,
+  `${BSBM_NS}Product`,
   `${BSBM_NS}Offer`,
-  `${BSBM_NS}Person`,
   `${BSBM_NS}Review`,
 ];
 
@@ -38,6 +45,27 @@ const documentLoaderWithContexts = async (url) => {
     }
   }
   return documentLoader(url);
+}
+
+for (const legalProductType of legalProductTypes) {
+  const typeDir = legalProductType.split('/').pop().toLowerCase();
+  const outputDir = path.join(__dirname, 'dist', 'bsbm', 'cid', typeDir);
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir, { recursive: true });
+  }
+  for (const triple of bsbm.store.match(null, rdf.type, DF.namedNode(legalProductType))) {
+    const outputPath = path.join(outputDir, `${triple.subject.value.split('/').pop()}-cid.json`);
+
+    try {
+      // Generate CID using vc-cli
+      const command = `vc-cli generate-cid -c ${triple.subject.value} -o ${outputPath} -k ./dist/pubKeys.json`;
+      console.log(`Generating CID for ${triple.subject.value}...`);
+      execSync(command);
+      console.log(`Successfully generated CID for ${triple.subject.value}`);
+    } catch (error) {
+      console.error(`Error generating CID for ${triple.subject.value}:`, error.message);
+    }
+  }
 }
 
 // Replace the single review loop with a loop over all product types

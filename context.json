@@ -177,6 +177,10 @@
         "@id": "bsbm:Vendor",
         "@type": "@id"
       },
+      "Person": {
+        "@id": "foaf:Person",
+        "@type": "@id"
+      },
       "ReviewCredential": {
         "@id": "bsbm:ReviewCredential",
         "@type": "@id"
@@ -198,7 +202,7 @@
         "@type": "@id"
       },
       "PersonCredential": {
-        "@id": "bsbm:PersonCredential",
+        "@id": "foaf:PersonCredential",
         "@type": "@id"
       }
     }

@@ -1,4 +1,4 @@
-
+import { rdf, foaf } from 'rdf-namespaces';
 const BSBM_NS = 'http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/';
 
 export default {
@@ -124,7 +124,7 @@ export default {
     "validFrom": {},
     "validUntil": {}
   },
-  [`${BSBM_NS}Person`]: {
+  [foaf.Person]: {
     "@context": [
       "https://www.w3.org/ns/credentials/v2",
       "https://example.org/bsbm/context"
