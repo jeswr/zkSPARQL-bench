@@ -1,0 +1,22 @@
+{
+  "name": "zksparql-bench",
+  "version": "1.0.0",
+  "description": "A benchmark for zero knowledge SPARQL queries over Verifiable Credentials",
+  "main": "index.js",
+  "scripts": {
+    "build": "bash ./build.sh"
+  },
+  "keywords": [],
+  "author": "Jesse Wright <https://github.com/jeswr>",
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@jeswr/vc-cli": "^1.15.0",
+    "jsonld": "^8.3.3",
+    "n3": "^1.25.2",
+    "rdf-dereference-store": "^1.3.2",
+    "rdf-namespaces": "^1.12.0"
+  }
+}

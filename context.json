@@ -1,0 +1,206 @@
+{
+  "https://example.org/bsbm/context": {
+    "@context": {
+      "bsbm": "http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/",
+      "bi": "http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/",
+      "stuff": "http://purl.org/stuff/rev#",
+      "dc": "http://purl.org/dc/elements/1.1/",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "iso3166": "http://downlode.org/rdf/iso-3166/countries#",
+      "reviewer": {
+        "@id": "stuff:reviewer",
+        "@type": "@id"
+      },
+      "reviewFor": {
+        "@id": "bsbm:reviewFor",
+        "@type": "@id"
+      },
+      "rating1": {
+        "@id": "bsbm:rating1",
+        "@type": "xsd:integer"
+      },
+      "rating2": {
+        "@id": "bsbm:rating2",
+        "@type": "xsd:integer"
+      },
+      "rating3": {
+        "@id": "bsbm:rating3",
+        "@type": "xsd:integer"
+      },
+      "rating4": {
+        "@id": "bsbm:rating4",
+        "@type": "xsd:integer"
+      },
+      "reviewDate": {
+        "@id": "bsbm:reviewDate",
+        "@type": "xsd:dateTime"
+      },
+      "text": {
+        "@id": "stuff:text",
+        "@language": "en"
+      },
+      "title": {
+        "@id": "dc:title"
+      },
+      "date": {
+        "@id": "dc:date",
+        "@type": "xsd:date"
+      },
+      "publisher": {
+        "@id": "dc:publisher",
+        "@type": "@id"
+      },
+      "label": {
+        "@id": "rdfs:label"
+      },
+      "comment": {
+        "@id": "rdfs:comment"
+      },
+      "productType": {
+        "@id": "rdf:type",
+        "@type": "@id"
+      },
+      "productPropertyNumeric1": {
+        "@id": "bsbm:productPropertyNumeric1",
+        "@type": "xsd:integer"
+      },
+      "productPropertyNumeric2": {
+        "@id": "bsbm:productPropertyNumeric2",
+        "@type": "xsd:integer"
+      },
+      "productPropertyNumeric3": {
+        "@id": "bsbm:productPropertyNumeric3",
+        "@type": "xsd:integer"
+      },
+      "productPropertyNumeric4": {
+        "@id": "bsbm:productPropertyNumeric4",
+        "@type": "xsd:integer"
+      },
+      "productPropertyNumeric5": {
+        "@id": "bsbm:productPropertyNumeric5",
+        "@type": "xsd:integer"
+      },
+      "productPropertyNumeric6": {
+        "@id": "bsbm:productPropertyNumeric6",
+        "@type": "xsd:integer"
+      },
+      "productPropertyTextual1": {
+        "@id": "bsbm:productPropertyTextual1",
+        "@type": "xsd:string"
+      },
+      "productPropertyTextual2": {
+        "@id": "bsbm:productPropertyTextual2",
+        "@type": "xsd:string"
+      },
+      "productPropertyTextual3": {
+        "@id": "bsbm:productPropertyTextual3",
+        "@type": "xsd:string"
+      },
+      "productPropertyTextual4": {
+        "@id": "bsbm:productPropertyTextual4",
+        "@type": "xsd:string"
+      },
+      "productPropertyTextual5": {
+        "@id": "bsbm:productPropertyTextual5",
+        "@type": "xsd:string"
+      },
+      "productFeature": {
+        "@id": "bsbm:productFeature",
+        "@type": "@id"
+      },
+      "producer": {
+        "@id": "bsbm:producer",
+        "@type": "@id"
+      },
+      "homepage": {
+        "@id": "foaf:homepage",
+        "@type": "@id"
+      },
+      "country": {
+        "@id": "bsbm:country",
+        "@type": "@id"
+      },
+      "product": {
+        "@id": "bsbm:product",
+        "@type": "@id"
+      },
+      "vendor": {
+        "@id": "bsbm:vendor",
+        "@type": "@id"
+      },
+      "price": {
+        "@id": "bsbm:price",
+        "@type": "bsbm:USD"
+      },
+      "validFrom": {
+        "@id": "bsbm:validFrom",
+        "@type": "xsd:dateTime"
+      },
+      "validTo": {
+        "@id": "bsbm:validTo",
+        "@type": "xsd:dateTime"
+      },
+      "deliveryDays": {
+        "@id": "bsbm:deliveryDays",
+        "@type": "xsd:integer"
+      },
+      "offerWebpage": {
+        "@id": "bsbm:offerWebpage",
+        "@type": "@id"
+      },
+      "personName": {
+        "@id": "foaf:name"
+      },
+      "mbox_sha1sum": {
+        "@id": "foaf:mbox_sha1sum"
+      },
+      "Offer": {
+        "@id": "bsbm:Offer",
+        "@type": "@id"
+      },
+      "Review": {
+        "@id": "bsbm:Review",
+        "@type": "@id"
+      },
+      "ProductFeature": {
+        "@id": "bsbm:ProductFeature",
+        "@type": "@id"
+      },
+      "Producer": {
+        "@id": "bsbm:Producer",
+        "@type": "@id"
+      },
+      "Vendor": {
+        "@id": "bsbm:Vendor",
+        "@type": "@id"
+      },
+      "ReviewCredential": {
+        "@id": "bsbm:ReviewCredential",
+        "@type": "@id"
+      },
+      "ProductFeatureCredential": {
+        "@id": "bsbm:ProductFeatureCredential",
+        "@type": "@id"
+      },
+      "ProducerCredential": {
+        "@id": "bsbm:ProducerCredential",
+        "@type": "@id"
+      },
+      "VendorCredential": {
+        "@id": "bsbm:VendorCredential",
+        "@type": "@id"
+      },
+      "OfferCredential": {
+        "@id": "bsbm:OfferCredential",
+        "@type": "@id"
+      },
+      "PersonCredential": {
+        "@id": "bsbm:PersonCredential",
+        "@type": "@id"
+      }
+    }
+  }
+}
