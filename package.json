@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "bash ./build.sh",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "vc-cli": "vc-cli"
   },
   "keywords": [],
   "author": "Jesse Wright <https://github.com/jeswr>",
