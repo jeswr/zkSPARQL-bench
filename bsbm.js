@@ -50,7 +50,7 @@ const cidLocations = {};
 function signCredentialWithCLI(credentialPath, cidPath, outputPath, publisher) {
   try {
     // Sign credential using npx vc-cli with Ed25519 signature
-    const command = `npx vc-cli sign-credential -d ${credentialPath} -c ${cidPath} -o ${outputPath} -k ./dist/pubKeys.json -i "${publisher}#key-2" --document-loader-content="./dist/context.json"`;
+    const command = `npx vc-cli sign-credential -d ${credentialPath} -c ${cidPath} -o ${outputPath} -k ./dist/pubKeys.json -i "${publisher}#key-1" --document-loader-content="./dist/context.json"`;
     console.log(`Signing credential ${credentialPath}...`);
     execSync(command);
     console.log(`Successfully signed credential to ${outputPath}`);
