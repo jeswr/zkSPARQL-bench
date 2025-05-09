@@ -1,5 +1,15 @@
 # zkSPARQL-bench
 
+### Using the bechmark
+
+The benchmark is generated and released to
+
+https://github.com/jeswr/zkSPARQL-bench/archive/refs/tags/vX.Y.Z.zip
+
+The benchmark can be directly downloaded and used
+
+### Contributing
+
 A benchmark for zero knowledge SPARQL queries over Verifiable Credential. To generate the benchmark run
 
 ```
