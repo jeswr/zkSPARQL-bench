@@ -1,6 +1,16 @@
 # zkSPARQL-bench
 
-A benchmark for zero knowledge SPARQL queries over Verifiable Credential
+A benchmark for zero knowledge SPARQL queries over Verifiable Credential. To generate the benchmark run
+
+```
+npm i
+npm run build
+```
+
+Requirements:
+
+* Docker
+* Nodejs (>= 22.x)
 
 TODO:
 
@@ -8,7 +18,6 @@ TODO:
 * Add query answer checkers
   * For LUBM this can be based on https://swat.cse.lehigh.edu/projects/lubm/
 * Check the generated queries
-
 
 Known Limitations:
 
