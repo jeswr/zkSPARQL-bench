@@ -95,6 +95,7 @@ bsbm.ttl
 BSBM-1.4.0/
 v1.4.0.zip
 v1.4.0/
+*.nq
 
 # Gatsby files
 .cache/
