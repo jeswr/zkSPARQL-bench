@@ -4,7 +4,7 @@
 
 The benchmark is generated and released to
 
-https://github.com/jeswr/zkSPARQL-bench/archive/refs/tags/vX.Y.Z.zip
+https://registry.npmjs.org/zksparql-bench/-/zksparql-bench-X.Y.Z.tgz
 
 The benchmark can be directly downloaded and used:
 
