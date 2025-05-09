@@ -6,7 +6,10 @@ The benchmark is generated and released to
 
 https://github.com/jeswr/zkSPARQL-bench/archive/refs/tags/vX.Y.Z.zip
 
-The benchmark can be directly downloaded and used
+The benchmark can be directly downloaded and used:
+
+- the dataset can be found in the credentials contained in dist/BENCHMARK_NAME/data-signed/
+- the `documentLoaderContent.json` gives all URL resolutions that need to be overridden when performing the benchmark
 
 ### Contributing
 
@@ -28,6 +31,7 @@ TODO:
 * Add query answer checkers
   * For LUBM this can be based on https://swat.cse.lehigh.edu/projects/lubm/
 * Check the generated queries
+* Dont publish the dist to github, it publishes each file individually which is time consuming
 
 Known Limitations:
 
