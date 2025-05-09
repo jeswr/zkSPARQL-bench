@@ -2,7 +2,7 @@ import deref from 'rdf-dereference-store';
 import { rdf, foaf } from 'rdf-namespaces';
 import { DataFactory as DF } from 'n3';
 import jsonld from 'jsonld';
-import { documentLoader } from '@jeswr/vc-cli';
+import { documentLoader, signCredential } from '@jeswr/vc-cli';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -47,12 +47,20 @@ const documentLoaderWithContexts = async (url) => {
 
 const cidLocations = {};
 
-function signCredentialWithCLI(credentialPath, cidPath, outputPath, publisher) {
+async function signCredentialWithCLI(credentialPath, cidPath, outputPath, publisher, privateKeys) {
   try {
     // Sign credential using npx vc-cli with Ed25519 signature
-    const command = `npx vc-cli sign-credential -d ${credentialPath} -c ${cidPath} -o ${outputPath} -k ./dist/pubKeys.json -i "${publisher}#key-1" --document-loader-content="./dist/context.json"`;
+    // const command = `npx vc-cli sign-credential -d ${credentialPath} -c ${cidPath} -o ${outputPath} -k ./dist/pubKeys.json -i "${publisher}#key-1" --document-loader-content="./dist/context.json"`;
     console.log(`Signing credential ${credentialPath}...`);
-    execSync(command);
+    const signed = await signCredential({
+      documentLoaderContent: contexts,
+      document: JSON.parse(fs.readFileSync(credentialPath, 'utf8')),
+      cid: JSON.parse(fs.readFileSync(cidPath, 'utf8')),
+      keyId: `${publisher}#key-1`,
+      privateKeys
+    });
+    fs.writeFileSync(outputPath, JSON.stringify(signed, null, 2));
+    // execSync(command);
     console.log(`Successfully signed credential to ${outputPath}`);
   } catch (error) {
     console.error(`Error signing credential ${credentialPath}:`, error.message);
@@ -86,6 +94,8 @@ for (const legalProductType of legalProductTypes) {
     generateCid(triple.subject.value, outputPath);
   }
 }
+
+const privateKeys = JSON.parse(fs.readFileSync('./dist/pubKeys.json', 'utf8'));
 
 // Replace the single review loop with a loop over all product types
 for (const productType of productTypes) {
@@ -147,7 +157,7 @@ for (const productType of productTypes) {
     // Sign the credential with the publisher's CID
     if (cidLocations[publisher.value]) {
       const signedOutputPath = path.join(signedOutputDir, `${triple.subject.value.split('/').pop()}.jsonld`);
-      signCredentialWithCLI(outputPath, cidLocations[publisher.value], signedOutputPath, publisher.value);
+      await signCredentialWithCLI(outputPath, cidLocations[publisher.value], signedOutputPath, publisher.value, privateKeys);
     } else {
       console.warn(`No CID found for publisher ${publisher.value}`);
     }
