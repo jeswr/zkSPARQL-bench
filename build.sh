@@ -17,3 +17,4 @@ mkdir -p dist/bsbm/queries
 cp -r bsbmq/queries dist/bsbm
 
 node scripts/collect-cids.js
+node scripts/join-loaders.js

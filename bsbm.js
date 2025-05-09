@@ -2,7 +2,7 @@ import deref from 'rdf-dereference-store';
 import { rdf, foaf } from 'rdf-namespaces';
 import { DataFactory as DF } from 'n3';
 import jsonld from 'jsonld';
-import { documentLoader, signCredential } from '@jeswr/vc-cli';
+import { documentLoader, signCredential, generateCIDDocument } from '@jeswr/vc-cli';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -50,7 +50,6 @@ const cidLocations = {};
 async function signCredentialWithCLI(credentialPath, cidPath, outputPath, publisher, privateKeys) {
   try {
     // Sign credential using npx vc-cli with Ed25519 signature
-    // const command = `npx vc-cli sign-credential -d ${credentialPath} -c ${cidPath} -o ${outputPath} -k ./dist/pubKeys.json -i "${publisher}#key-1" --document-loader-content="./dist/context.json"`;
     console.log(`Signing credential ${credentialPath}...`);
     const signed = await signCredential({
       documentLoaderContent: contexts,
@@ -67,12 +66,18 @@ async function signCredentialWithCLI(credentialPath, cidPath, outputPath, publis
   }
 }
 
-function generateCid(subject, outputPath) {
+let privateKeys = {};
+
+async function generateCid(subject, outputPath) {
   try {
     // Generate CID using vc-cli
-    const command = `npx vc-cli generate-cid -c ${subject} -o ${outputPath} -k ./dist/pubKeys.json`;
-    console.log(`Generating CID for ${subject}...`);
-    execSync(command);
+    if (!fs.existsSync(outputPath)) {
+      fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+    }
+
+    const cid = await generateCIDDocument(subject);
+    fs.writeFileSync(outputPath, JSON.stringify(cid.cid, null, 2));
+    privateKeys = { ...privateKeys, ...cid.privateKeys };
     console.log(`Successfully generated CID for ${subject}`);
     cidLocations[subject] = outputPath;
   } catch (error) {
@@ -80,8 +85,8 @@ function generateCid(subject, outputPath) {
   }
 }
 
-generateCid('http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromRatingSite1/RatingSite1', path.join(__dirname, 'dist', 'bsbm', 'cid', 'site', 'RatingSite1-cid.json'));
-generateCid('http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/StandardizationInstitution1', path.join(__dirname, 'dist', 'bsbm', 'cid', 'institution', 'StandardizationInstitution1-cid.json'));
+await generateCid('http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/dataFromRatingSite1/RatingSite1', path.join(__dirname, 'dist', 'bsbm', 'cid', 'site', 'RatingSite1-cid.json'));
+await generateCid('http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/instances/StandardizationInstitution1', path.join(__dirname, 'dist', 'bsbm', 'cid', 'institution', 'StandardizationInstitution1-cid.json'));
 
 for (const legalProductType of legalProductTypes) {
   const typeDir = legalProductType.split('/').pop().toLowerCase();
@@ -91,11 +96,11 @@ for (const legalProductType of legalProductTypes) {
   }
   for (const triple of bsbm.store.match(null, rdf.type, DF.namedNode(legalProductType))) {
     const outputPath = path.join(outputDir, `${triple.subject.value.split('/').pop()}-cid.json`);
-    generateCid(triple.subject.value, outputPath);
+    await  generateCid(triple.subject.value, outputPath);
   }
 }
 
-const privateKeys = JSON.parse(fs.readFileSync('./dist/pubKeys.json', 'utf8'));
+fs.writeFileSync(path.join(__dirname, 'dist', 'privateKeys.json'), JSON.stringify(privateKeys, null, 2));
 
 // Replace the single review loop with a loop over all product types
 for (const productType of productTypes) {
@@ -152,7 +157,6 @@ for (const productType of productTypes) {
     fs.writeFileSync(outputPath, JSON.stringify(framed, null, 2));
 
     const [{ object: publisher }] = bsbm.store.match(triple.subject, DF.namedNode('http://purl.org/dc/elements/1.1/publisher'), null);
-    console.log(publisher.value, cidLocations[publisher.value]);
 
     // Sign the credential with the publisher's CID
     if (cidLocations[publisher.value]) {
