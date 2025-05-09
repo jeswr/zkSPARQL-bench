@@ -1,6 +1,6 @@
 {
   "name": "zksparql-bench",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "A benchmark for zero knowledge SPARQL queries over Verifiable Credentials",
   "main": "index.js",
   "scripts": {
@@ -28,7 +28,9 @@
     "semantic-release": "^22.0.7"
   },
   "release": {
-    "branches": ["main"],
+    "branches": [
+      "main"
+    ],
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
