@@ -7,6 +7,10 @@ import { fileURLToPath } from 'node:url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const start = Date.now();
 
+// Get all files that need to be processed
+const filesPromise = fs.promises.readdir(path.join(__dirname, './dist/bsbm/data-signed'), { recursive: true })
+  .then(files => files.filter(file => file.endsWith('.jsonld')));
+
 // Determine number of workers based on CPU cores
 // Use number of CPU cores minus 1 to leave one core for system processes
 const numWorkers = Math.max(1, Math.min(os.cpus().length - 1, 4));
@@ -41,9 +45,13 @@ for (let i = 0; i < numWorkers; i++) {
   workers.push(worker);
 }
 
-// Get all files that need to be processed
-const files = fs.readdirSync(path.join(__dirname, './dist/bsbm/data-signed'), { recursive: true })
-  .filter(file => file.endsWith('.jsonld'));
+// Create necessary directories
+const outDir = path.join(__dirname, './dist/bsbm/data-signed-preprocessed');
+if (!fs.existsSync(outDir)) {
+  fs.mkdirSync(outDir, { recursive: true });
+}
+
+const files = await filesPromise;
 
 // Distribute files among workers by slicing the array
 const chunkSize = Math.ceil(files.length / numWorkers);
