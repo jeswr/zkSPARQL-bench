@@ -3,23 +3,15 @@ import { StreamWriter } from 'n3';
 import fs from 'node:fs';
 import context from './context.json' with { type: 'json' };
 import { union, fromArray } from 'asynciterator';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-const __dirname = path.dirname(fileURLToPath(import.meta.url)); 
 
 const start = Date.now();
 
-const files = fs.readdirSync(path.join(__dirname, './dist/bsbm/data-signed-preprocessed'), { recursive: true })
+const files = fs.readdirSync('./dist/bsbm/data-signed/', { recursive: true })
   .filter(file => file.endsWith('.jsonld'))
-  .map(file => path.join(__dirname, './dist/bsbm/data-signed-preprocessed', file));
+  .map(file => `./dist/bsbm/data-signed/${file}`);
 
-const outFile = path.join(__dirname, './dist/bsbm/data-signed-preprocessed.nq');
-
-if (fs.existsSync(outFile)) {
-  fs.unlinkSync(outFile);
-}
-
-const outputStream = fs.createWriteStream(outFile);
+// Create a write stream for the output file
+const outputStream = fs.createWriteStream('./output.nq');
 const writer = new StreamWriter({ format: 'N-Quads' });
 writer.pipe(outputStream);
 
@@ -41,7 +33,7 @@ const fetch = (url) => {
   throw new Error(`Unknown URL: ${url}`);
 };
 
-const it = union(files.map(async (file) => {
+const it = union(fromArray(files).map(async (file) => {
   const dereferenced = await rdfDereferencer.dereference(file, {
     fetch,
     localFiles: true,
@@ -49,6 +41,8 @@ const it = union(files.map(async (file) => {
   return dereferenced.data;
 }));
 
-writer.import(it).on('finish', () => {
+writer.import(it);
+
+process.on('exit', () => {
   console.log(`Done in ${Date.now() - start}ms`);
 });
