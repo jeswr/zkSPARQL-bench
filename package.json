@@ -19,7 +19,12 @@
   "keywords": [],
   "author": "Jesse Wright <https://github.com/jeswr>",
   "files": [
-    "dist"
+    "dist",
+    "worker.js",
+    "canonize.js",
+    "transform.js",
+    "frame.js",
+    "scripts"
   ],
   "license": "MIT",
   "dependencies": {
