@@ -3,11 +3,18 @@
   "version": "1.0.4",
   "description": "A benchmark for zero knowledge SPARQL queries over Verifiable Credentials",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "build": "bash ./build.sh",
     "semantic-release": "semantic-release",
     "vc-cli": "vc-cli",
-    "collect": "vc-cli collect -d ./dist/bsbm/data-signed/ -o bsbm.ttl --document-loader-content='./dist/context.json'"
+    "collect": "vc-cli collect -d ./dist/bsbm/data-signed/ -o bsbm.ttl --document-loader-content='./dist/context.json'",
+    "canonize": "node ./canonize.js",
+    "transform": "node ./transform.js"
+  },
+  "bin": {
+    "canonize": "node ./canonize.js",
+    "transform": "node ./transform.js"
   },
   "keywords": [],
   "author": "Jesse Wright <https://github.com/jeswr>",
@@ -16,7 +23,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@jeswr/vc-cli": "^1.18.1",
+    "@jeswr/vc-cli": "^1.20.0",
     "asynciterator": "^3.9.0",
     "jsonld": "^8.3.3",
     "n3": "^1.25.2",
