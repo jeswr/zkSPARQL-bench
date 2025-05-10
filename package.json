@@ -1,6 +1,6 @@
 {
   "name": "zksparql-bench",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "A benchmark for zero knowledge SPARQL queries over Verifiable Credentials",
   "main": "index.js",
   "type": "module",
