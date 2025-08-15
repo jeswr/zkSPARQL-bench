@@ -1,0 +1,10 @@
+# SP2B Q12c from https://dbis.informatik.uni-freiburg.de/content/projects/SP2B/docs/sp2b_queries.txt
+# Generated 2025-08-15T13:26:34.546Z
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX person: <http://localhost/persons/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+ASK {
+  person:John_Q_Public rdf:type foaf:Person.
+}

@@ -1,0 +1,15 @@
+# SP2B Q1 from https://dbis.informatik.uni-freiburg.de/content/projects/SP2B/docs/sp2b_queries.txt
+# Generated 2025-08-15T13:26:34.546Z
+
+PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX dc:      <http://purl.org/dc/elements/1.1/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX bench:   <http://localhost/vocabulary/bench/>
+PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?yr
+WHERE {
+  ?journal rdf:type bench:Journal .
+  ?journal dc:title "Journal 1 (1940)"^^xsd:string .
+  ?journal dcterms:issued ?yr
+}

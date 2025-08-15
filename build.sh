@@ -20,5 +20,9 @@ cp -r lubm/queries dist/lubm
 mkdir -p dist/bsbm/queries
 cp -r bsbmq/queries dist/bsbm
 
+# SP2B Queries (fetched from official source by scripts/sp2b-fetch-queries.js)
+mkdir -p dist/sp2b/queries
+cp -r sp2b/queries dist/sp2b
+
 # Rebuild CID index and document loader, then preprocess and transform
 node scripts/collect-cids.js && node scripts/join-loaders.js && node canonize.js && node transform.js

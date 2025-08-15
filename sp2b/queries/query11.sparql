@@ -1,0 +1,12 @@
+# SP2B Q11 from https://dbis.informatik.uni-freiburg.de/content/projects/SP2B/docs/sp2b_queries.txt
+# Generated 2025-08-15T13:26:34.546Z
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?ee
+WHERE {
+  ?publication rdfs:seeAlso ?ee
+}
+ORDER BY ?ee
+LIMIT 10
+OFFSET 50

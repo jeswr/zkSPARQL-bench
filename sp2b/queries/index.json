@@ -1,0 +1,19 @@
+{
+  "Q1": "query1.sparql",
+  "Q2": "query2.sparql",
+  "Q3a": "query3a.sparql",
+  "Q3b": "query3b.sparql",
+  "Q3c": "query3c.sparql",
+  "Q4": "query4.sparql",
+  "Q5a": "query5a.sparql",
+  "Q5b": "query5b.sparql",
+  "Q6": "query6.sparql",
+  "Q7": "query7.sparql",
+  "Q8": "query8.sparql",
+  "Q9": "query9.sparql",
+  "Q10": "query10.sparql",
+  "Q11": "query11.sparql",
+  "Q12a": "query12a.sparql",
+  "Q12b": "query12b.sparql",
+  "Q12c": "query12c.sparql"
+}

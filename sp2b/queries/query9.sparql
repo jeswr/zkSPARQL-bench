@@ -1,0 +1,16 @@
+# SP2B Q9 from https://dbis.informatik.uni-freiburg.de/content/projects/SP2B/docs/sp2b_queries.txt
+# Generated 2025-08-15T13:26:34.546Z
+
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+SELECT DISTINCT ?predicate
+WHERE {
+  {
+    ?person rdf:type foaf:Person .
+    ?subject ?predicate ?person
+  } UNION {
+    ?person rdf:type foaf:Person .
+    ?person ?predicate ?object
+  }
+}

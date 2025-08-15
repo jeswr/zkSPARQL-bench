@@ -25,6 +25,16 @@ Requirements:
 * Docker
 * Nodejs (>= 22.x)
 
+### SP2B queries
+
+Fetch and generate the SP2B query files into `sp2b/queries`:
+
+```
+npm run sp2b:queries
+```
+
+They will be copied into `dist/sp2b/queries` during `npm run build`.
+
 TODO:
 
 * Add a DCAT description of the benchmark

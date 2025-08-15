@@ -1,0 +1,9 @@
+# SP2B Q10 from https://dbis.informatik.uni-freiburg.de/content/projects/SP2B/docs/sp2b_queries.txt
+# Generated 2025-08-15T13:26:34.546Z
+
+PREFIX person: <http://localhost/persons/>
+
+SELECT ?subject ?predicate
+WHERE {
+  ?subject ?predicate person:Paul_Erdoes
+}
