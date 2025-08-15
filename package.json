@@ -10,7 +10,9 @@
     "vc-cli": "vc-cli",
     "collect": "vc-cli collect -d ./dist/bsbm/data-signed/ -o bsbm.ttl --document-loader-content='./dist/context.json'",
     "canonize": "node ./canonize.js",
-    "transform": "node ./transform.js"
+  "transform": "node ./transform.js",
+  "sp2b:fetch-run": "bash ./scripts/sp2b-fetch-run.sh",
+  "sp2b:vc": "node ./sp2b.js"
   },
   "bin": {
     "canonize": "node ./canonize.js",

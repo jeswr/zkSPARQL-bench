@@ -20,5 +20,5 @@ cp -r lubm/queries dist/lubm
 mkdir -p dist/bsbm/queries
 cp -r bsbmq/queries dist/bsbm
 
-node scripts/collect-cids.js
-node scripts/join-loaders.js
+# Rebuild CID index and document loader, then preprocess and transform
+node scripts/collect-cids.js && node scripts/join-loaders.js && node canonize.js && node transform.js
