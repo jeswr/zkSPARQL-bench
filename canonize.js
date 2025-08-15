@@ -7,9 +7,23 @@ import { fileURLToPath } from 'node:url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const start = Date.now();
 
-// Get all files that need to be processed
-const filesPromise = fs.promises.readdir(path.join(__dirname, './dist/bsbm/data-signed'), { recursive: true })
-  .then(files => files.filter(file => file.endsWith('.jsonld')));
+// Collect files from both datasets if present
+async function collectDatasetFiles(dataset) {
+  const dir = path.join(__dirname, `./dist/${dataset}/data-signed`);
+  if (!fs.existsSync(dir)) return [];
+  const files = await fs.promises.readdir(dir, { recursive: true });
+  return files
+    .filter(f => f.endsWith('.jsonld'))
+    .map(f => `${dataset}/data-signed/${f}`);
+}
+
+const filesPromise = (async () => {
+  const [bsbm, lubm] = await Promise.all([
+    collectDatasetFiles('bsbm'),
+    collectDatasetFiles('lubm'),
+  ]);
+  return [...bsbm, ...lubm];
+})();
 
 // Determine number of workers based on CPU cores
 // Use number of CPU cores minus 1 to leave one core for system processes
@@ -45,10 +59,12 @@ for (let i = 0; i < numWorkers; i++) {
   workers.push(worker);
 }
 
-// Create necessary directories
-const outDir = path.join(__dirname, './dist/bsbm/data-signed-preprocessed');
-if (!fs.existsSync(outDir)) {
-  fs.mkdirSync(outDir, { recursive: true });
+// Ensure output roots exist if datasets present
+for (const dataset of ['bsbm', 'lubm']) {
+  const dir = path.join(__dirname, `./dist/${dataset}/data-signed-preprocessed`);
+  if (fs.existsSync(path.join(__dirname, `./dist/${dataset}`)) && !fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
 }
 
 const files = await filesPromise;

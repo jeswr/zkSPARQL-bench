@@ -7,6 +7,10 @@ docker run -v "$PWD:/app/data" -e "DATA_DESTINATION=bsbm" vcity/bsbm generate -s
 
 node bsbm.js
 
+# LUBM Generation (dereferences remote dataset)
+echo "Generating LUBM credentials by dereferencing remote dataset..."
+node lubm.js
+
 rm -rf bsbm
 rm -rf .cache
 

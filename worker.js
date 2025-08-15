@@ -15,7 +15,12 @@ const exists = {};
 
 async function preprocess(file) {
   try {
-    const data = await fs.promises.readFile(path.join(__dirname, './dist/bsbm/data-signed', file), { encoding: 'utf8' });
+    // file looks like `${dataset}/data-signed/...`
+    const [dataset, ...rest] = file.split('/');
+    const rel = rest.join('/');
+    const inPath = path.join(__dirname, './dist', dataset, rel);
+    const outRoot = path.join(__dirname, './dist', dataset, 'data-signed-preprocessed');
+    const data = await fs.promises.readFile(inPath, { encoding: 'utf8' });
     const document = JSON.parse(data);
     const cid = cids[document.issuer.id];
     const preprocessedData = await preprocessEd25519Verification({
@@ -23,8 +28,8 @@ async function preprocess(file) {
       cid,
       documentLoaderContent: await documentLoaderContent
     });
-    const dir = path.dirname(file);
-    const outPath = path.join(__dirname, './dist/bsbm/data-signed-preprocessed', dir);
+    const dir = path.dirname(rel.replace('data-signed/', ''));
+    const outPath = path.join(outRoot, dir);
     if (!exists[outPath]) {
       if (!fs.existsSync(outPath)) {
         fs.mkdirSync(outPath, { recursive: true });
@@ -32,7 +37,7 @@ async function preprocess(file) {
       exists[outPath] = true;
     }
     await fs.promises.writeFile(
-      path.join(__dirname, './dist/bsbm/data-signed-preprocessed', file),
+      path.join(outRoot, rel.replace('data-signed/', '')),
       JSON.stringify(preprocessedData, null, 2)
     );
   } catch (err) {

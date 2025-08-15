@@ -207,6 +207,56 @@
       }
     }
   },
+  "https://example.org/lubm/context": {
+    "@context": {
+      "ub": "http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#",
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+  "ubName": { "@id": "ub:name" },
+      "emailAddress": { "@id": "ub:emailAddress" },
+      "telephone": { "@id": "ub:telephone" },
+
+      "memberOf": { "@id": "ub:memberOf", "@type": "@id" },
+      "worksFor": { "@id": "ub:worksFor", "@type": "@id" },
+      "teacherOf": { "@id": "ub:teacherOf", "@type": "@id" },
+      "takesCourse": { "@id": "ub:takesCourse", "@type": "@id" },
+      "subOrganizationOf": { "@id": "ub:subOrganizationOf", "@type": "@id" },
+      "headOf": { "@id": "ub:headOf", "@type": "@id" },
+      "publicationAuthor": { "@id": "ub:publicationAuthor", "@type": "@id" },
+      "publication": { "@id": "ub:publication", "@type": "@id" },
+      "undergraduateDegreeFrom": { "@id": "ub:undergraduateDegreeFrom", "@type": "@id" },
+      "mastersDegreeFrom": { "@id": "ub:mastersDegreeFrom", "@type": "@id" },
+      "doctoralDegreeFrom": { "@id": "ub:doctoralDegreeFrom", "@type": "@id" },
+
+      "University": { "@id": "ub:University", "@type": "@id" },
+      "Department": { "@id": "ub:Department", "@type": "@id" },
+      "ResearchGroup": { "@id": "ub:ResearchGroup", "@type": "@id" },
+      "GraduateStudent": { "@id": "ub:GraduateStudent", "@type": "@id" },
+      "UndergraduateStudent": { "@id": "ub:UndergraduateStudent", "@type": "@id" },
+      "Professor": { "@id": "ub:Professor", "@type": "@id" },
+  "FullProfessor": { "@id": "ub:FullProfessor", "@type": "@id" },
+      "AssociateProfessor": { "@id": "ub:AssociateProfessor", "@type": "@id" },
+      "AssistantProfessor": { "@id": "ub:AssistantProfessor", "@type": "@id" },
+      "Lecturer": { "@id": "ub:Lecturer", "@type": "@id" },
+      "Course": { "@id": "ub:Course", "@type": "@id" },
+      "Publication": { "@id": "ub:Publication", "@type": "@id" },
+
+      "UniversityCredential": { "@id": "ub:UniversityCredential", "@type": "@id" },
+      "DepartmentCredential": { "@id": "ub:DepartmentCredential", "@type": "@id" },
+      "ResearchGroupCredential": { "@id": "ub:ResearchGroupCredential", "@type": "@id" },
+      "GraduateStudentCredential": { "@id": "ub:GraduateStudentCredential", "@type": "@id" },
+      "UndergraduateStudentCredential": { "@id": "ub:UndergraduateStudentCredential", "@type": "@id" },
+      "ProfessorCredential": { "@id": "ub:ProfessorCredential", "@type": "@id" },
+  "FullProfessorCredential": { "@id": "ub:FullProfessorCredential", "@type": "@id" },
+      "AssociateProfessorCredential": { "@id": "ub:AssociateProfessorCredential", "@type": "@id" },
+      "AssistantProfessorCredential": { "@id": "ub:AssistantProfessorCredential", "@type": "@id" },
+      "LecturerCredential": { "@id": "ub:LecturerCredential", "@type": "@id" },
+      "CourseCredential": { "@id": "ub:CourseCredential", "@type": "@id" },
+      "PublicationCredential": { "@id": "ub:PublicationCredential", "@type": "@id" }
+    }
+  },
   "https://www.w3.org/ns/credentials/v2": {
     "@context": {
       "@protected": true,
