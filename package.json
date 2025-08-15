@@ -1,6 +1,6 @@
 {
   "name": "zksparql-bench",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "description": "A benchmark for zero knowledge SPARQL queries over Verifiable Credentials",
   "main": "index.js",
   "type": "module",
@@ -9,11 +9,11 @@
     "semantic-release": "semantic-release",
     "vc-cli": "vc-cli",
     "collect": "vc-cli collect -d ./dist/bsbm/data-signed/ -o bsbm.ttl --document-loader-content='./dist/context.json'",
-  "canonize": "node ./canonize.js",
-  "transform": "node ./transform.js",
-  "sp2b:fetch-run": "bash ./scripts/sp2b-fetch-run.sh",
-  "sp2b:vc": "node ./sp2b.js",
-  "sp2b:queries": "node ./scripts/sp2b-fetch-queries.js"
+    "canonize": "node ./canonize.js",
+    "transform": "node ./transform.js",
+    "sp2b:fetch-run": "bash ./scripts/sp2b-fetch-run.sh",
+    "sp2b:vc": "node ./sp2b.js",
+    "sp2b:queries": "node ./scripts/sp2b-fetch-queries.js"
   },
   "bin": {
     "canonize": "node ./canonize.js",
