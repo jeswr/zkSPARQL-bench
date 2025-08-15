@@ -11,6 +11,12 @@ node bsbm.js
 echo "Generating LUBM credentials by dereferencing remote dataset..."
 node lubm.js
 
+# SP2B Generation
+echo "Generating SP2B dataset (dockerized) and credentials..."
+# You can override TRIPLES via environment for larger datasets, e.g. TRIPLES=1000000
+bash ./scripts/sp2b-fetch-run.sh
+node sp2b.js
+
 rm -rf bsbm
 rm -rf .cache
 

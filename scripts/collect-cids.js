@@ -19,5 +19,6 @@ function collect(dir) {
 
 collect('bsbm');
 collect('lubm');
+collect('sp2b');
 
 fs.writeFileSync(path.join(__dirname, '..', 'dist', 'cids.json'), JSON.stringify(res, null, 2));
