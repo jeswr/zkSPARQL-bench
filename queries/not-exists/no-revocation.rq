@@ -1,0 +1,9 @@
+# NOT EXISTS — exclude bindings that match a guard pattern.
+PREFIX schema: <http://schema.org/>
+PREFIX vc: <https://www.w3.org/2018/credentials#>
+
+SELECT ?person ?givenName
+WHERE {
+  ?person schema:givenName ?givenName .
+  FILTER NOT EXISTS { ?person vc:credentialStatus ?s }
+}

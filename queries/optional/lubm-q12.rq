@@ -1,0 +1,9 @@
+# OPTIONAL clause around supervisor binding.
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX ub: <http://www.lehigh.edu/~zhp2/2004/0401/univ-bench.owl#>
+
+SELECT ?student ?supervisor
+WHERE {
+  ?student rdf:type ub:GraduateStudent .
+  OPTIONAL { ?student ub:advisor ?supervisor }
+}

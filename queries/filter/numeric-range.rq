@@ -1,0 +1,9 @@
+# BGP + numeric-range FILTER (BSBM-style).
+PREFIX bsbm: <http://www4.wiwiss.fu-berlin.de/bizer/bsbm/v01/vocabulary/>
+
+SELECT ?product ?value
+WHERE {
+  ?product a bsbm:Product ;
+    bsbm:productPropertyNumeric1 ?value .
+  FILTER (?value > 100)
+}

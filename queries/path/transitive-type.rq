@@ -1,0 +1,8 @@
+# Property-path query — sequence + zero-or-more.
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?s ?super
+WHERE {
+  ?s rdf:type/rdfs:subClassOf* ?super .
+}
