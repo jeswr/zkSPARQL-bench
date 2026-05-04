@@ -1,0 +1,11 @@
+# BGP-only over verifiable-credential vocabulary.
+# Source: paper/sources/iswc2025-dc/queries/employment-status.rq
+PREFIX citizenship: <https://w3id.org/citizenship#>
+PREFIX schema: <http://schema.org/>
+
+SELECT DISTINCT ?person ?givenName ?familyName
+WHERE {
+  ?person a citizenship:EmployablePerson ;
+    schema:givenName ?givenName ;
+    schema:familyName ?familyName .
+}

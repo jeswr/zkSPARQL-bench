@@ -1,0 +1,7 @@
+# Aggregate — COUNT grouped by class.
+# Verifier-side post-processing per sparql_noir SPARQL_ROADMAP §8.6 Q6.
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?class (COUNT(?s) AS ?n)
+WHERE { ?s rdf:type ?class }
+GROUP BY ?class

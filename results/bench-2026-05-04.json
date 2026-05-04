@@ -1,0 +1,619 @@
+{
+  "schema": "zkSPARQL-bench-results-v1",
+  "provenance": {
+    "sparqlNoirCommit": "f1e902fc6ef5df7c15211907f8eddd14a49ef756",
+    "benchRepoCommit": "289a12e2a5f2e672087bf0c292542ed2f33b6aa6",
+    "queryVersion": null,
+    "hardware": {
+      "cpuModel": "Apple M1",
+      "cpuCount": 8,
+      "arch": "arm64",
+      "platform": "darwin",
+      "totalMemoryGb": 16,
+      "nodeVersion": "v25.1.0"
+    },
+    "date": "2026-05-04T22:28:51.226Z"
+  },
+  "summary": {
+    "total": 22,
+    "ok": 2,
+    "naCount": 17,
+    "errCount": 3
+  },
+  "rows": [
+    {
+      "cell": {
+        "commitment": "sorted-leaf-merkle",
+        "signature": "ed25519",
+        "queryClass": "bgp",
+        "query": "employment-status",
+        "dataset": "LUBM-1",
+        "metric": "prove-time-ms"
+      },
+      "provenance": {
+        "sparqlNoirCommit": "f1e902fc6ef5df7c15211907f8eddd14a49ef756",
+        "benchRepoCommit": "289a12e2a5f2e672087bf0c292542ed2f33b6aa6",
+        "queryVersion": "7e4a2b03095fe577",
+        "hardware": {
+          "cpuModel": "Apple M1",
+          "cpuCount": 8,
+          "arch": "arm64",
+          "platform": "darwin",
+          "totalMemoryGb": 16,
+          "nodeVersion": "v25.1.0"
+        },
+        "date": "2026-05-04T22:25:57.639Z"
+      },
+      "signMs": 7988.602042,
+      "status": "error",
+      "phase": "prove",
+      "error": "No bindings found for the query."
+    },
+    {
+      "cell": {
+        "commitment": "sorted-leaf-merkle",
+        "signature": "ed25519",
+        "queryClass": "bgp",
+        "query": "lubm-q1",
+        "dataset": "LUBM-1",
+        "metric": "prove-time-ms"
+      },
+      "provenance": {
+        "sparqlNoirCommit": "f1e902fc6ef5df7c15211907f8eddd14a49ef756",
+        "benchRepoCommit": "289a12e2a5f2e672087bf0c292542ed2f33b6aa6",
+        "queryVersion": "fa390c9bc723b020",
+        "hardware": {
+          "cpuModel": "Apple M1",
+          "cpuCount": 8,
+          "arch": "arm64",
+          "platform": "darwin",
+          "totalMemoryGb": 16,
+          "nodeVersion": "v25.1.0"
+        },
+        "date": "2026-05-04T22:26:16.451Z"
+      },
+      "signMs": 5378.396790999999,
+      "status": "ok",
+      "value": 25357.971916000002,
+      "auxiliary": {
+        "proveMs": 25357.971916000002,
+        "verifyMs": 8116.653333000002,
+        "proofSizeB": 48768,
+        "verified": true,
+        "proofs": 3
+      }
+    },
+    {
+      "cell": {
+        "commitment": "sorted-leaf-merkle",
+        "signature": "ed25519",
+        "queryClass": "bgp",
+        "query": "spo",
+        "dataset": "LUBM-1",
+        "metric": "prove-time-ms"
+      },
+      "provenance": {
+        "sparqlNoirCommit": "f1e902fc6ef5df7c15211907f8eddd14a49ef756",
+        "benchRepoCommit": "289a12e2a5f2e672087bf0c292542ed2f33b6aa6",
+        "queryVersion": "cb17feed24ec39bf",
+        "hardware": {
+          "cpuModel": "Apple M1",
+          "cpuCount": 8,
+          "arch": "arm64",
+          "platform": "darwin",
+          "totalMemoryGb": 16,
+          "nodeVersion": "v25.1.0"
+        },
+        "date": "2026-05-04T22:26:55.798Z"
+      },
+      "signMs": 10307.311916999999,
+      "status": "ok",
+      "value": 47011.954958,
+      "auxiliary": {
+        "proveMs": 47011.954958,
+        "verifyMs": 28135.173791999987,
+        "proofSizeB": 162560,
+        "verified": true,
+        "proofs": 10
+      }
+    },
+    {
+      "cell": {
+        "commitment": "sorted-leaf-merkle",
+        "signature": "ed25519",
+        "queryClass": "filter",
+        "query": "can-drive",
+        "dataset": "LUBM-1",
+        "metric": "prove-time-ms"
+      },
+      "provenance": {
+        "sparqlNoirCommit": "f1e902fc6ef5df7c15211907f8eddd14a49ef756",
+        "benchRepoCommit": "289a12e2a5f2e672087bf0c292542ed2f33b6aa6",
+        "queryVersion": "3883bb6698a815c7",
+        "hardware": {
+          "cpuModel": "Apple M1",
+          "cpuCount": 8,
+          "arch": "arm64",
+          "platform": "darwin",
+          "totalMemoryGb": 16,
+          "nodeVersion": "v25.1.0"
+        },
+        "date": "2026-05-04T22:28:21.394Z"
+      },
+      "signMs": 10782.778707999998,
+      "status": "error",
+      "phase": "prove",
+      "error": "No bindings found for the query."
+    },
+    {
+      "cell": {
+        "commitment": "sorted-leaf-merkle",
+        "signature": "ed25519",
+        "queryClass": "filter",
+        "query": "numeric-range",
+        "dataset": "LUBM-1",
+        "metric": "prove-time-ms"
+      },
+      "provenance": {
+        "sparqlNoirCommit": "f1e902fc6ef5df7c15211907f8eddd14a49ef756",
+        "benchRepoCommit": "289a12e2a5f2e672087bf0c292542ed2f33b6aa6",
+        "queryVersion": "3363453dadf74496",
+        "hardware": {
+          "cpuModel": "Apple M1",
+          "cpuCount": 8,
+          "arch": "arm64",
+          "platform": "darwin",
+          "totalMemoryGb": 16,
+          "nodeVersion": "v25.1.0"
+        },
+        "date": "2026-05-04T22:28:37.928Z"
+      },
+      "signMs": 7349.167957999976,
+      "status": "error",
+      "phase": "prove",
+      "error": "No bindings found for the query."
+    },
+    {
+      "cell": {
+        "commitment": "sorted-leaf-merkle",
+        "signature": "ed25519",
+        "queryClass": "optional",
+        "query": "lubm-q12",
+        "dataset": "LUBM-1",
+        "metric": "prove-time-ms"
+      },
+      "provenance": {
+        "sparqlNoirCommit": "f1e902fc6ef5df7c15211907f8eddd14a49ef756",
+        "benchRepoCommit": "289a12e2a5f2e672087bf0c292542ed2f33b6aa6",
+        "queryVersion": "54f34d202ee67513",
+        "hardware": {
+          "cpuModel": "Apple M1",
+          "cpuCount": 8,
+          "arch": "arm64",
+          "platform": "darwin",
+          "totalMemoryGb": 16,
+          "nodeVersion": "v25.1.0"
+        },
+        "date": "2026-05-04T22:28:48.693Z"
+      },
+      "status": "n/a",
+      "reason": "OPTIONAL collapse — sparql_noir round-3 partial / round-4 single-circuit pending"
+    },
+    {
+      "cell": {
+        "commitment": "sorted-leaf-merkle",
+        "signature": "ed25519",
+        "queryClass": "aggregate",
+        "query": "count-by-class",
+        "dataset": "LUBM-1",
+        "metric": "prove-time-ms"
+      },
+      "provenance": {
+        "sparqlNoirCommit": "f1e902fc6ef5df7c15211907f8eddd14a49ef756",
+        "benchRepoCommit": "289a12e2a5f2e672087bf0c292542ed2f33b6aa6",
+        "queryVersion": "71d4747b1aacd73e",
+        "hardware": {
+          "cpuModel": "Apple M1",
+          "cpuCount": 8,
+          "arch": "arm64",
+          "platform": "darwin",
+          "totalMemoryGb": 16,
+          "nodeVersion": "v25.1.0"
+        },
+        "date": "2026-05-04T22:28:48.856Z"
+      },
+      "status": "n/a",
+      "reason": "verifier-side post-processing pattern; in-circuit not in scope"
+    },
+    {
+      "cell": {
+        "commitment": "sorted-leaf-merkle",
+        "signature": "ed25519",
+        "queryClass": "path",
+        "query": "transitive-type",
+        "dataset": "LUBM-1",
+        "metric": "prove-time-ms"
+      },
+      "provenance": {
+        "sparqlNoirCommit": "f1e902fc6ef5df7c15211907f8eddd14a49ef756",
+        "benchRepoCommit": "289a12e2a5f2e672087bf0c292542ed2f33b6aa6",
+        "queryVersion": "b8615031d3a34328",
+        "hardware": {
+          "cpuModel": "Apple M1",
+          "cpuCount": 8,
+          "arch": "arm64",
+          "platform": "darwin",
+          "totalMemoryGb": 16,
+          "nodeVersion": "v25.1.0"
+        },
+        "date": "2026-05-04T22:28:48.979Z"
+      },
+      "status": "n/a",
+      "reason": "property paths — not yet shipped"
+    },
+    {
+      "cell": {
+        "commitment": "sorted-leaf-merkle",
+        "signature": "ed25519",
+        "queryClass": "exists",
+        "query": "has-license",
+        "dataset": "LUBM-1",
+        "metric": "prove-time-ms"
+      },
+      "provenance": {
+        "sparqlNoirCommit": "f1e902fc6ef5df7c15211907f8eddd14a49ef756",
+        "benchRepoCommit": "289a12e2a5f2e672087bf0c292542ed2f33b6aa6",
+        "queryVersion": "ecf30999509ad0fc",
+        "hardware": {
+          "cpuModel": "Apple M1",
+          "cpuCount": 8,
+          "arch": "arm64",
+          "platform": "darwin",
+          "totalMemoryGb": 16,
+          "nodeVersion": "v25.1.0"
+        },
+        "date": "2026-05-04T22:28:49.416Z"
+      },
+      "status": "n/a",
+      "reason": "EXISTS — sparql_noir round-3 partial"
+    },
+    {
+      "cell": {
+        "commitment": "sorted-leaf-merkle",
+        "signature": "ed25519",
+        "queryClass": "not-exists",
+        "query": "no-revocation",
+        "dataset": "LUBM-1",
+        "metric": "prove-time-ms"
+      },
+      "provenance": {
+        "sparqlNoirCommit": "f1e902fc6ef5df7c15211907f8eddd14a49ef756",
+        "benchRepoCommit": "289a12e2a5f2e672087bf0c292542ed2f33b6aa6",
+        "queryVersion": "7c1b0c344ddb522f",
+        "hardware": {
+          "cpuModel": "Apple M1",
+          "cpuCount": 8,
+          "arch": "arm64",
+          "platform": "darwin",
+          "totalMemoryGb": 16,
+          "nodeVersion": "v25.1.0"
+        },
+        "date": "2026-05-04T22:28:49.607Z"
+      },
+      "status": "n/a",
+      "reason": "NOT EXISTS — sparql_noir round-3 partial"
+    },
+    {
+      "cell": {
+        "commitment": "sorted-leaf-merkle",
+        "signature": "ed25519",
+        "queryClass": "minus",
+        "query": "non-graduates",
+        "dataset": "LUBM-1",
+        "metric": "prove-time-ms"
+      },
+      "provenance": {
+        "sparqlNoirCommit": "f1e902fc6ef5df7c15211907f8eddd14a49ef756",
+        "benchRepoCommit": "289a12e2a5f2e672087bf0c292542ed2f33b6aa6",
+        "queryVersion": "95aa006e496cee52",
+        "hardware": {
+          "cpuModel": "Apple M1",
+          "cpuCount": 8,
+          "arch": "arm64",
+          "platform": "darwin",
+          "totalMemoryGb": 16,
+          "nodeVersion": "v25.1.0"
+        },
+        "date": "2026-05-04T22:28:49.719Z"
+      },
+      "status": "n/a",
+      "reason": "MINUS — sparql_noir round-3 partial"
+    },
+    {
+      "cell": {
+        "commitment": "prefix-tree",
+        "signature": "ed25519",
+        "queryClass": "bgp",
+        "query": "employment-status",
+        "dataset": "LUBM-1",
+        "metric": "prove-time-ms"
+      },
+      "provenance": {
+        "sparqlNoirCommit": "f1e902fc6ef5df7c15211907f8eddd14a49ef756",
+        "benchRepoCommit": "289a12e2a5f2e672087bf0c292542ed2f33b6aa6",
+        "queryVersion": "7e4a2b03095fe577",
+        "hardware": {
+          "cpuModel": "Apple M1",
+          "cpuCount": 8,
+          "arch": "arm64",
+          "platform": "darwin",
+          "totalMemoryGb": 16,
+          "nodeVersion": "v25.1.0"
+        },
+        "date": "2026-05-04T22:28:49.812Z"
+      },
+      "status": "n/a",
+      "reason": "prefix-tree commitment not yet shipped (paper §4.3 round-4 pending)"
+    },
+    {
+      "cell": {
+        "commitment": "prefix-tree",
+        "signature": "ed25519",
+        "queryClass": "bgp",
+        "query": "lubm-q1",
+        "dataset": "LUBM-1",
+        "metric": "prove-time-ms"
+      },
+      "provenance": {
+        "sparqlNoirCommit": "f1e902fc6ef5df7c15211907f8eddd14a49ef756",
+        "benchRepoCommit": "289a12e2a5f2e672087bf0c292542ed2f33b6aa6",
+        "queryVersion": "fa390c9bc723b020",
+        "hardware": {
+          "cpuModel": "Apple M1",
+          "cpuCount": 8,
+          "arch": "arm64",
+          "platform": "darwin",
+          "totalMemoryGb": 16,
+          "nodeVersion": "v25.1.0"
+        },
+        "date": "2026-05-04T22:28:49.893Z"
+      },
+      "status": "n/a",
+      "reason": "prefix-tree commitment not yet shipped (paper §4.3 round-4 pending)"
+    },
+    {
+      "cell": {
+        "commitment": "prefix-tree",
+        "signature": "ed25519",
+        "queryClass": "bgp",
+        "query": "spo",
+        "dataset": "LUBM-1",
+        "metric": "prove-time-ms"
+      },
+      "provenance": {
+        "sparqlNoirCommit": "f1e902fc6ef5df7c15211907f8eddd14a49ef756",
+        "benchRepoCommit": "289a12e2a5f2e672087bf0c292542ed2f33b6aa6",
+        "queryVersion": "cb17feed24ec39bf",
+        "hardware": {
+          "cpuModel": "Apple M1",
+          "cpuCount": 8,
+          "arch": "arm64",
+          "platform": "darwin",
+          "totalMemoryGb": 16,
+          "nodeVersion": "v25.1.0"
+        },
+        "date": "2026-05-04T22:28:49.994Z"
+      },
+      "status": "n/a",
+      "reason": "prefix-tree commitment not yet shipped (paper §4.3 round-4 pending)"
+    },
+    {
+      "cell": {
+        "commitment": "prefix-tree",
+        "signature": "ed25519",
+        "queryClass": "filter",
+        "query": "can-drive",
+        "dataset": "LUBM-1",
+        "metric": "prove-time-ms"
+      },
+      "provenance": {
+        "sparqlNoirCommit": "f1e902fc6ef5df7c15211907f8eddd14a49ef756",
+        "benchRepoCommit": "289a12e2a5f2e672087bf0c292542ed2f33b6aa6",
+        "queryVersion": "3883bb6698a815c7",
+        "hardware": {
+          "cpuModel": "Apple M1",
+          "cpuCount": 8,
+          "arch": "arm64",
+          "platform": "darwin",
+          "totalMemoryGb": 16,
+          "nodeVersion": "v25.1.0"
+        },
+        "date": "2026-05-04T22:28:50.099Z"
+      },
+      "status": "n/a",
+      "reason": "prefix-tree commitment not yet shipped (paper §4.3 round-4 pending)"
+    },
+    {
+      "cell": {
+        "commitment": "prefix-tree",
+        "signature": "ed25519",
+        "queryClass": "filter",
+        "query": "numeric-range",
+        "dataset": "LUBM-1",
+        "metric": "prove-time-ms"
+      },
+      "provenance": {
+        "sparqlNoirCommit": "f1e902fc6ef5df7c15211907f8eddd14a49ef756",
+        "benchRepoCommit": "289a12e2a5f2e672087bf0c292542ed2f33b6aa6",
+        "queryVersion": "3363453dadf74496",
+        "hardware": {
+          "cpuModel": "Apple M1",
+          "cpuCount": 8,
+          "arch": "arm64",
+          "platform": "darwin",
+          "totalMemoryGb": 16,
+          "nodeVersion": "v25.1.0"
+        },
+        "date": "2026-05-04T22:28:50.197Z"
+      },
+      "status": "n/a",
+      "reason": "prefix-tree commitment not yet shipped (paper §4.3 round-4 pending)"
+    },
+    {
+      "cell": {
+        "commitment": "prefix-tree",
+        "signature": "ed25519",
+        "queryClass": "optional",
+        "query": "lubm-q12",
+        "dataset": "LUBM-1",
+        "metric": "prove-time-ms"
+      },
+      "provenance": {
+        "sparqlNoirCommit": "f1e902fc6ef5df7c15211907f8eddd14a49ef756",
+        "benchRepoCommit": "289a12e2a5f2e672087bf0c292542ed2f33b6aa6",
+        "queryVersion": "54f34d202ee67513",
+        "hardware": {
+          "cpuModel": "Apple M1",
+          "cpuCount": 8,
+          "arch": "arm64",
+          "platform": "darwin",
+          "totalMemoryGb": 16,
+          "nodeVersion": "v25.1.0"
+        },
+        "date": "2026-05-04T22:28:50.403Z"
+      },
+      "status": "n/a",
+      "reason": "prefix-tree commitment not yet shipped (paper §4.3 round-4 pending)"
+    },
+    {
+      "cell": {
+        "commitment": "prefix-tree",
+        "signature": "ed25519",
+        "queryClass": "aggregate",
+        "query": "count-by-class",
+        "dataset": "LUBM-1",
+        "metric": "prove-time-ms"
+      },
+      "provenance": {
+        "sparqlNoirCommit": "f1e902fc6ef5df7c15211907f8eddd14a49ef756",
+        "benchRepoCommit": "289a12e2a5f2e672087bf0c292542ed2f33b6aa6",
+        "queryVersion": "71d4747b1aacd73e",
+        "hardware": {
+          "cpuModel": "Apple M1",
+          "cpuCount": 8,
+          "arch": "arm64",
+          "platform": "darwin",
+          "totalMemoryGb": 16,
+          "nodeVersion": "v25.1.0"
+        },
+        "date": "2026-05-04T22:28:50.631Z"
+      },
+      "status": "n/a",
+      "reason": "prefix-tree commitment not yet shipped (paper §4.3 round-4 pending)"
+    },
+    {
+      "cell": {
+        "commitment": "prefix-tree",
+        "signature": "ed25519",
+        "queryClass": "path",
+        "query": "transitive-type",
+        "dataset": "LUBM-1",
+        "metric": "prove-time-ms"
+      },
+      "provenance": {
+        "sparqlNoirCommit": "f1e902fc6ef5df7c15211907f8eddd14a49ef756",
+        "benchRepoCommit": "289a12e2a5f2e672087bf0c292542ed2f33b6aa6",
+        "queryVersion": "b8615031d3a34328",
+        "hardware": {
+          "cpuModel": "Apple M1",
+          "cpuCount": 8,
+          "arch": "arm64",
+          "platform": "darwin",
+          "totalMemoryGb": 16,
+          "nodeVersion": "v25.1.0"
+        },
+        "date": "2026-05-04T22:28:50.768Z"
+      },
+      "status": "n/a",
+      "reason": "prefix-tree commitment not yet shipped (paper §4.3 round-4 pending)"
+    },
+    {
+      "cell": {
+        "commitment": "prefix-tree",
+        "signature": "ed25519",
+        "queryClass": "exists",
+        "query": "has-license",
+        "dataset": "LUBM-1",
+        "metric": "prove-time-ms"
+      },
+      "provenance": {
+        "sparqlNoirCommit": "f1e902fc6ef5df7c15211907f8eddd14a49ef756",
+        "benchRepoCommit": "289a12e2a5f2e672087bf0c292542ed2f33b6aa6",
+        "queryVersion": "ecf30999509ad0fc",
+        "hardware": {
+          "cpuModel": "Apple M1",
+          "cpuCount": 8,
+          "arch": "arm64",
+          "platform": "darwin",
+          "totalMemoryGb": 16,
+          "nodeVersion": "v25.1.0"
+        },
+        "date": "2026-05-04T22:28:50.883Z"
+      },
+      "status": "n/a",
+      "reason": "prefix-tree commitment not yet shipped (paper §4.3 round-4 pending)"
+    },
+    {
+      "cell": {
+        "commitment": "prefix-tree",
+        "signature": "ed25519",
+        "queryClass": "not-exists",
+        "query": "no-revocation",
+        "dataset": "LUBM-1",
+        "metric": "prove-time-ms"
+      },
+      "provenance": {
+        "sparqlNoirCommit": "f1e902fc6ef5df7c15211907f8eddd14a49ef756",
+        "benchRepoCommit": "289a12e2a5f2e672087bf0c292542ed2f33b6aa6",
+        "queryVersion": "7c1b0c344ddb522f",
+        "hardware": {
+          "cpuModel": "Apple M1",
+          "cpuCount": 8,
+          "arch": "arm64",
+          "platform": "darwin",
+          "totalMemoryGb": 16,
+          "nodeVersion": "v25.1.0"
+        },
+        "date": "2026-05-04T22:28:51.015Z"
+      },
+      "status": "n/a",
+      "reason": "prefix-tree commitment not yet shipped (paper §4.3 round-4 pending)"
+    },
+    {
+      "cell": {
+        "commitment": "prefix-tree",
+        "signature": "ed25519",
+        "queryClass": "minus",
+        "query": "non-graduates",
+        "dataset": "LUBM-1",
+        "metric": "prove-time-ms"
+      },
+      "provenance": {
+        "sparqlNoirCommit": "f1e902fc6ef5df7c15211907f8eddd14a49ef756",
+        "benchRepoCommit": "289a12e2a5f2e672087bf0c292542ed2f33b6aa6",
+        "queryVersion": "95aa006e496cee52",
+        "hardware": {
+          "cpuModel": "Apple M1",
+          "cpuCount": 8,
+          "arch": "arm64",
+          "platform": "darwin",
+          "totalMemoryGb": 16,
+          "nodeVersion": "v25.1.0"
+        },
+        "date": "2026-05-04T22:28:51.121Z"
+      },
+      "status": "n/a",
+      "reason": "prefix-tree commitment not yet shipped (paper §4.3 round-4 pending)"
+    }
+  ]
+}

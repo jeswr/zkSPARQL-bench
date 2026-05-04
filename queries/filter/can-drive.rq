@@ -1,0 +1,20 @@
+# BGP + multi-FILTER over date arithmetic.
+# Source: paper/sources/iswc2025-dc/queries/can-drive.rq
+PREFIX citizenship: <https://w3id.org/citizenship#>
+PREFIX schema: <http://schema.org/>
+PREFIX vdl: <https://w3id.org/vdl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?s ?givenName ?familyName
+WHERE {
+  ?s citizenship:employmentAuthorizationDocument [ citizenship:lprCategory "C09" ] ;
+    citizenship:residentSince ?date ;
+    schema:birthDate ?birthDate ;
+    schema:givenName ?givenName ;
+    schema:familyName ?familyName ;
+    vdl:license [ vdl:expiryDate ?expiryDate ] .
+
+  FILTER( ?date < "2020-01-01T00:00:00"^^xsd:dateTime )
+  FILTER( ?birthDate < "2007-01-01T00:00:00"^^xsd:dateTime )
+  FILTER( ?expiryDate > "2025-01-01T00:00:00"^^xsd:dateTime )
+}
