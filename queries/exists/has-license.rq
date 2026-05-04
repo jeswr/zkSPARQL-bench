@@ -1,0 +1,9 @@
+# EXISTS — guard a binding by an extra triple's existence.
+PREFIX schema: <http://schema.org/>
+PREFIX vdl: <https://w3id.org/vdl#>
+
+SELECT ?person ?givenName
+WHERE {
+  ?person schema:givenName ?givenName .
+  FILTER EXISTS { ?person vdl:license ?l }
+}

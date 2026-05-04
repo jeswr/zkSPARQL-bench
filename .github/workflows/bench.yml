@@ -1,0 +1,64 @@
+name: bench
+
+# Tiny axial-harness sanity check on every PR. Heavy sweep is
+# manual / EC2 (per `decisions/aws-credentials-setup.md` Step 6).
+# Per `feedback_offload_to_ci.md`, the harness runs on CI, not on
+# Jesse's machine.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "bootstrap | sweep"
+        required: false
+        default: bootstrap
+
+permissions:
+  contents: read
+
+jobs:
+  enumerate:
+    name: enumerate cross-product
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: install harness deps
+        run: npm install --no-audit --no-fund
+      - name: enumerate (no-run)
+        run: node harness/run-axis.js --enumerate-only > /tmp/cells.jsonl
+      - name: summarise
+        run: |
+          echo "Cells: $(wc -l < /tmp/cells.jsonl)"
+          echo "Runnable: $(grep -c '"runnable":true' /tmp/cells.jsonl || true)"
+
+  bootstrap-cell:
+    name: bootstrap cell — sorted-leaf x ed25519 x bgp/lubm-q1 x LUBM-1
+    runs-on: ubuntu-latest
+    needs: enumerate
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: install harness deps
+        run: npm install --no-audit --no-fund || npm install --no-audit --no-fund --no-optional
+      - name: run bootstrap cell
+        env:
+          NODE_OPTIONS: "--max-old-space-size=4096"
+        run: |
+          mkdir -p results
+          node harness/run-axis.js --bootstrap \
+            --out results/ci-${{ github.run_id }}.json
+      - name: show result
+        run: cat results/ci-${{ github.run_id }}.json
+      - name: upload result
+        uses: actions/upload-artifact@v4
+        with:
+          name: bootstrap-result
+          path: results/ci-${{ github.run_id }}.json

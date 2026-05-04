@@ -13,7 +13,10 @@
     "transform": "node ./transform.js",
     "sp2b:fetch-run": "bash ./scripts/sp2b-fetch-run.sh",
     "sp2b:vc": "node ./sp2b.js",
-    "sp2b:queries": "node ./scripts/sp2b-fetch-queries.js"
+    "sp2b:queries": "node ./scripts/sp2b-fetch-queries.js",
+    "bench:enumerate": "node ./harness/run-axis.js --enumerate-only",
+    "bench:bootstrap": "node ./harness/run-axis.js --bootstrap --out results/local-bootstrap.json",
+    "bench:report": "node ./analysis/report.js results/local-bootstrap.json --out analysis/out/table-8.3.tex"
   },
   "bin": {
     "canonize": "node ./canonize.js",
@@ -38,6 +41,9 @@
     "rdf-dereference": "^4.0.0",
     "rdf-dereference-store": "^1.3.2",
     "rdf-namespaces": "^1.12.0"
+  },
+  "optionalDependencies": {
+    "@jeswr/sparql-noir": "*"
   },
   "devDependencies": {
     "@semantic-release/git": "^10.0.1",

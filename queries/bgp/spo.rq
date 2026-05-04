@@ -1,0 +1,3 @@
+# Generic BGP — single triple pattern, lowest selectivity baseline.
+# Source: paper/sources/iswc2025-dc/queries/query.rq
+SELECT ?s ?p ?o WHERE { ?s ?p ?o }
